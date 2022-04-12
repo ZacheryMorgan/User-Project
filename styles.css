@@ -62,3 +62,14 @@ th {
   padding: 6px;
   margin: 7px 0;
 }
+
+.user-wrapper {
+  display: flex;
+  padding: 5px;
+}
+
+@media only screen and (max-width: 800px) {
+  .user-wrapper {
+    flex-direction: column;
+  }
+}

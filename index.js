@@ -35,21 +35,35 @@ async function generateTable(userData) {
 
   // Add click event to each row
   const rows = document.querySelectorAll('.user-row');
-  rows.forEach((row) => row.addEventListener('click', (e) => generatePosts(e.target.parentElement.attributes[1].value)));
+  rows.forEach((row) => row.addEventListener('click', (e) => generatePosts(e.target.parentElement.attributes[1].value, userData)));
 }
 
 generateTable(fetchUsers());
 
-const generatePosts = async (id) => {
+const generatePosts = async (id, users) => {
   // Removes old Post div if it exists
-  if (document.querySelector('.post-wrapper')) { document.querySelector('.post-wrapper').remove(); }
+  if (document.querySelector('.user-wrapper')) { document.querySelector('.user-wrapper').remove(); }
 
   // Fetch posts using id parameter
   const fetchUsersPosts = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`);
   const data = await fetchUsersPosts.json();
+
+  const usersData = await users
+  const currentUser = usersData.find(user => user.id == id)
+
   const app = document.querySelector('body');
+
+  const userWrapper = document.createElement('div')
+  userWrapper.classList.add('user-wrapper');
+
   const postWrapper = document.createElement('div');
   postWrapper.classList.add('post-wrapper');
+
+  const userDataWrapper = document.createElement('div')
+  userDataWrapper.classList.add('user-list')
+  userDataWrapper.innerHTML = JSON.stringify(currentUser).replace(/['"{}]+/g, ' ').replace(/,+/g, '<br>')
+
+  userWrapper.appendChild(userDataWrapper)
 
   // Map over every post to create a div with title and body
   data.map((post) => {
@@ -66,5 +80,6 @@ const generatePosts = async (id) => {
     postWrapper.appendChild(postContent);
   });
 
-  app.appendChild(postWrapper);
+  userWrapper.appendChild(postWrapper);
+  app.append(userWrapper)
 };
