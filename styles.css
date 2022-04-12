@@ -1,0 +1,33 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 6px
+}
+
+th {
+  text-transform: uppercase;
+  background-color: rgba(151, 52, 52, 0.815);
+  color: white;
+}
+
+#user-table {
+  width: 100%;
+}
+
+.user-row {
+  cursor: pointer;
+}
+
+.user-row:hover {
+  background-color: rgba(47, 207, 41, 0.212);
+}
+
+.user-row:active {
+  background-color: rgba(7, 209, 40, 0.425);
+}
+
+.post-content {
+  border: 1px solid rgb(78, 76, 76);
+  padding: 6px;
+  margin: 7px 0;
+}
