@@ -4,7 +4,32 @@
   box-sizing: border-box;
 }
 
-table, th, td {
+p {
+  padding: 4px;
+}
+
+body {
+  overflow-y: scroll;
+  padding: 5px;
+  padding-bottom: 2rem;
+}
+
+html {
+  position: relative;
+  min-height: 100vh;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  height: 2rem;
+  text-align: center;
+}
+
+table,
+th,
+td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 6px
@@ -36,27 +61,4 @@ th {
   border: 1px solid rgb(78, 76, 76);
   padding: 6px;
   margin: 7px 0;
-}
-
-p {
-  padding: 4px;
-}
-
-body {
-  overflow-y: scroll;
-  padding: 5px;
-  padding-bottom: 2rem;
-}
-
-html {
-  position: relative;
-  min-height: 100vh;
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 95%;
-  height: 2rem;
-  text-align: center;
 }
