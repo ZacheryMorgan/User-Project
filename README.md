@@ -1,5 +1,7 @@
 # User-Table For Interview
 
+## [Live View](https://zacherymorgan.github.io/User-Project/)
+
 ### Built With
 - HTML
 - CSS
